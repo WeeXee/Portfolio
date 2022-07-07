@@ -1,0 +1,12 @@
+# Site settings
+title: Pauline kb
+email:
+description: > # this means to ignore newlines until "baseurl:"
+baseurl: "Pauline_Cabee" # the subpath of your site, e.g. /blog/
+url: "" # the base hostname & protocol for your site
+
+twitter_username: Pauline_Cabee
+github_username: WeeXee
+
+# Build settings
+markdown: kramdown
