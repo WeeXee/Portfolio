@@ -1,14 +1,39 @@
 <header>
     <div class="header-content">
         <div class="header-content-inner">
-            <h1> My Portfolio </h1>
+            <h1 data-lang="en"> Portfolio </h1>
             <hr>
-            <p>Third Year in IT school, Cybersecurity.
-                <br> <br> I chose the international language for my website in a way to have more possibilities with compagnies. I'm a french person, fluent in english.
-                <br> <br>If you click on my git links to see my differents projects or internships, you will have the french versions, because my school is in France.
-                <br> Don't worry, you can contact me to have the englishs versions !
+            <p data-lang="en">Third Year in IT school, Cybersecurity.
+                <br> <br> I chose the international language for my website in a way to have more possibilities with companies. I'm a French person, fluent in English.
+                <br> <br>But if you click on the buttons in the navigation you can switch language between French and English, don't worry you have the choice!
+                <br> <br>You can now explore my portfolio, you can find my skills and my projects. If you click on my various links, you will be directed directly to my GIT in order to have all the detailed information.
             </p>
-            <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
+            <p data-lang="fr" style="display: none;"> Vous avez choisi la version française de mon site ! Bienvenue à vous ! Je suis donc en troisième année dans une école d'informatique, spécialité cybersécurité.
+                <br> <br> Je vous laisse le plaisir d'explorer mon portfolio, vous pourrez y trouver mes compétences ainsi que mes projets.
+                <br> <br> Si vous cliquez sur mes différents liens vous serez directement dirigé vers mon GIT afin d'avoir toutes les informations détaillées.
+            </p>
+            <a href="#about" class="btn btn-primary btn-xl page-scroll">Plus</a>
         </div>
     </div>
 </header>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const langButtons = document.querySelectorAll('.lang-button');
+        const paragraphs = document.querySelectorAll('p[data-lang]');
+
+        langButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const selectedLang = this.getAttribute('data-lang');
+
+                paragraphs.forEach(paragraph => {
+                    if (paragraph.getAttribute('data-lang') === selectedLang) {
+                        paragraph.style.display = 'block';
+                    } else {
+                        paragraph.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+</script>

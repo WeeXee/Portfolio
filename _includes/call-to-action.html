@@ -2,14 +2,47 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
-                <h2 class="section-heading">About me...</h2>
+                <h2 data-lang="en" class="section-heading">About me...</h2>
+                <h2 data-lang="fr" style="display: none;" class="section-heading">A propos de moi...</h2>
                 <hr class="light">
                 <p style="float: left; width: 200px;height: auto;margin-right: 20px;"> <img src="img/profil1.jpg" class="profil1" alt="imageprofil"></p>
                 <br><br>
-                <p class="text-faded">Just about to begin my third year in computer science. I am motivated by any kind of project. I obviously like IT but also design, photography and management. I like to create projects and I have a very good sense of priorities. I thrive
+                <p class="text-faded" data-lang="en">Just about to begin my third year in computer science. I am motivated by any kind of project. I obviously like IT but also design, photography and management. I like to create projects and I have a very good sense of priorities. I thrive
                     in teamwork. My speciality is the CyberSecurity.</p>
-                <a href="#services" class="btn btn-default btn-xl">Get Started!</a>
+                <p class="text-faded" data-lang="fr" style="display: none;">Je suis sur le point de commencer ma troisième année en informatique. Je suis motivé par tout type de projet. J'aime évidemment l'informatique mais aussi le design, la photographie et le management. J'aime créer des projets et j'ai un
+                    très bon sens des priorités. je m'épanouie dans le travail d'équipe. Ma spécialité est la CyberSécurité.</p>
+                <br>
+                <a href="#services" class="btn btn-default btn-xl">👇🏼 👇🏼</a>
             </div>
         </div>
     </div>
 </section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const langButtons = document.querySelectorAll('.lang-button');
+        const paragraphs = document.querySelectorAll('p[data-lang]');
+        const titre = document.querySelectorAll('h2[data-lang]');
+
+        langButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const selectedLang = this.getAttribute('data-lang');
+
+                paragraphs.forEach(paragraph => {
+                    if (paragraph.getAttribute('data-lang') === selectedLang) {
+                        paragraph.style.display = 'block';
+                    } else {
+                        paragraph.style.display = 'none';
+                    }
+                });
+                titre.forEach(titre => {
+                    if (titre.getAttribute('data-lang') === selectedLang) {
+                        titre.style.display = 'block';
+                    } else {
+                        titre.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+</script>

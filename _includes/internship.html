@@ -2,38 +2,49 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
-                <h2 class="section-heading">My internships</h2>
+                <h2 class="section-heading" data-lang="en">My internships</h2>
+                <h2 class="section-heading" data-lang="fr" style="display: none;">Mes stages</h2>
                 <hr class="light">
-                <p class="text-faded">In July 2022 I made an internship in Louvain La Neuve Laboratory of research (Belgium). I had the chance to be on a plugin project in a way of research in neuro science. (All the project below, you can click on it)</p>
-                <p class="text-faded">And in 2023 My second year's Internship was for an association of music. I had to create a whole website and a planning of reservations for shows online. (The website below, you can click on it too)</p>
+                <p class="text-faded" data-lang="en">In July 2022 I made an internship in Louvain La Neuve Laboratory of research (Belgium). I had the chance to be on a plugin project in a way of research in neuro science. (All the project below, you can click on it)</p>
+                <p class="text-faded" data-lang="en">And in 2023 My second year's Internship was for an association of music. I had to create a whole website and a planning of reservations for shows online. (The website below, you can click on it too)</p>
+
+                <p class="text-faded" data-lang="fr" style="display: none;">En juillet 2022 j'ai effectué un stage au Laboratoire de recherche de Louvain La Neuve (Belgique). J'ai eu la chance d'être sur un projet de plugin dans une voie de recherche en neurosciences. (Tout le projet ci-dessous, vous pouvez cliquer
+                    dessus)
+                </p>
+                <p class="text-faded" data-lang="fr" style="display: none;">Et en 2023 Mon stage de deuxième année était pour une association de musique. Je devais créer tout un site internet et un planning de réservations de spectacles en ligne. (Le site Web ci-dessous, vous pouvez également cliquer dessus)</p>
                 <br>
 
 
-                <button onclick="showPopup()">View Experience</button>
+                <button onclick="showPopup()">Experience...</button>
                 <div id="popup" class="popup">
                     <div class="popup-content">
                         <!--<span class="close" onclick="hidePopup()">&times;</span> -->
-                        <h3 style="color: darkslategrey;">Professional Experience</h3>
+                        <h2 data-lang="en" style="color: darkslategrey;">Professional Experience</h2>
+                        <h2 data-lang="fr" style="display: none; color: darkslategrey;">Experience Professionnelle</h2>
                         <p style="color: darkslategrey;">
                             <div class="timeline-container">
                                 <ul class="timeline">
                                     <li>
-                                        <div class="date">July 2022</div>
+                                        <div class="date">07.2022</div>
                                         <div class="content" style="color: #243277">
-                                            <h3>Crossmodal Perception and Plasticity laboratory</h3>
-                                            <p>Internship on the research and a creation of a new plugin in python</p>
-                                            <button onclick="window.open('https://github.com/WeeXee/Internship_2022.git', '_blank')">Here details</button>
+                                            <h2 data-lang="en">Crossmodal Perception and Plasticity laboratory</h2>
+                                            <h2 data-lang="fr" style="display: none;">Laboratoire de recherche Neuroscientifique</h2>
+                                            <p data-lang="en">Internship on the research and a creation of a new plugin in python</p>
+                                            <p data-lang="fr" style="display: none;">Stage dans un laboratoire de recherche, et création d'un plugin python</p>
+                                            <button onclick="window.open('https://github.com/WeeXee/Internship_2022.git', '_blank')">Details...</button>
                                         </div>
                                     </li>
                                     <li>
-                                        <div class="date"> Feb-Avr 2023</div>
+                                        <div class="date"> 02-04 2023</div>
                                         <div class="content" style="color: #243277">
-                                            <h3>Internship ASJA</h3>
-                                            <p>Creation of a website for a music assocation</p>
-                                            <button onclick="window.open('https://github.com/WeeXee/Internship_2023.git', '_blank')">Here details</button>
+                                            <h2 data-lang="en">Internship ASJA</h2>
+                                            <h2 data-lang="fr" style="display: none;">Stage ASJA</h2>
+                                            <p data-lang="en">Creation of a website for a music assocation</p>
+                                            <p data-lang="fr" style="display: none;">Creation d'un site internet pour une association de musique</p>
+                                            <button onclick="window.open('https://github.com/WeeXee/Internship_2023.git', '_blank')">Details...</button>
                                         </div>
                                 </ul>
-                                <button onclick="hidePopup()" , style="background-color: rgb(117, 58, 58)">Close</button>
+                                <button onclick="hidePopup()" , style="background-color: rgb(117, 58, 58)">X</button>
                             </div>
                         </p>
                     </div>
@@ -192,3 +203,32 @@
         }
     }
 </style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const langButtons = document.querySelectorAll('.lang-button');
+        const paragraphs = document.querySelectorAll('p[data-lang]');
+        const titre = document.querySelectorAll('h2[data-lang]');
+
+        langButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const selectedLang = this.getAttribute('data-lang');
+
+                paragraphs.forEach(paragraph => {
+                    if (paragraph.getAttribute('data-lang') === selectedLang) {
+                        paragraph.style.display = 'block';
+                    } else {
+                        paragraph.style.display = 'none';
+                    }
+                });
+                titre.forEach(titre => {
+                    if (titre.getAttribute('data-lang') === selectedLang) {
+                        titre.style.display = 'block';
+                    } else {
+                        titre.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+</script>

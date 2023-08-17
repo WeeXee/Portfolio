@@ -1,8 +1,30 @@
 <aside class="bg-dark">
     <div class="container text-center">
         <div class="call-to-action">
-            <h2>Download my CV:</h2>
-            <a href="https://github.com/WeeXee/Portfolio/blob/main/img/CV%20PAULINE.pdf" target="_blank" class="btn btn-default btn-xl wow tada">Click here to download!</a>
+            <h2 data-lang="en">Download my CV:</h2>
+            <h2 data-lang="fr" style="display: none;">Téléchargez mon CV:</h2>
+            <a href="https://github.com/WeeXee/Portfolio/blob/main/img/CV%20PAULINE.pdf" target="_blank" class="btn btn-default btn-xl wow tada">👉🏼👀</a>
         </div>
     </div>
 </aside>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const langButtons = document.querySelectorAll('.lang-button');
+        const paragraphs = document.querySelectorAll('h2[data-lang]');
+
+        langButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const selectedLang = this.getAttribute('data-lang');
+
+                paragraphs.forEach(paragraph => {
+                    if (paragraph.getAttribute('data-lang') === selectedLang) {
+                        paragraph.style.display = 'block';
+                    } else {
+                        paragraph.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+</script>

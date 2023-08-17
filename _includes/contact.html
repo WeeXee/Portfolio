@@ -2,9 +2,11 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
-                <h2 class="section-heading">Contact me !</h2>
+                <h2 class="section-heading" data-lang="en">Contact me !</h2>
+                <h2 class="section-heading" data-lang="fr" style="display: none;">Contactez moi !</h2>
                 <hr class="primary">
-                <p>Ready to start your next project with me?</p>
+                <p data-lang="en">Ready to start your next project with me ?</p>
+                <p data-lang="fr" style="display: none;">Prêt à commencer votre prochain projet avec moi ?</p>
             </div>
             <div class="col-lg-2 col-lg-offset-2 text-center">
                 <a href="https://www.instagram.com/kbphotographiie/" target="_blank">
@@ -27,3 +29,33 @@
 
         </div>
 </section>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const langButtons = document.querySelectorAll('.lang-button');
+        const paragraphs = document.querySelectorAll('p[data-lang]');
+        const titres = document.querySelectorAll('h2[data-lang]');
+
+        langButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const selectedLang = this.getAttribute('data-lang');
+
+                paragraphs.forEach(paragraph => {
+                    if (paragraph.getAttribute('data-lang') === selectedLang) {
+                        paragraph.style.display = 'block';
+                    } else {
+                        paragraph.style.display = 'none';
+                    }
+                });
+                titres.forEach(titres => {
+                    if (titres.getAttribute('data-lang') === selectedLang) {
+                        titres.style.display = 'block';
+                    } else {
+                        titres.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+</script>

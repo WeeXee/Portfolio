@@ -2,17 +2,49 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
-                <h2 class="section-heading">Science review</h2>
+                <h2 class="section-heading" data-lang="en">Science review</h2>
+                <h2 class="section-heading" data-lang="fr" style="display: none;">Revue scientifique</h2>
                 <hr class="light">
                 <p style="float: left; width: 200px;height: auto;margin-right: 100px;"> <img src="img/portfolio/article.png" class="profil1" download="https://github.com/WeeXee/Portfolio/raw/main/img/portfolio/article.pdf" alt="imageprofil"></p>
                 <br><br>
-                <p class="text-faded">In 2021, the Dikè doctoral training program, carried out by the CTHDIP, declined in two stages the theme of the interbreeding of rights in French-speaking sub-Saharan Africa.
+                <p class="text-faded" data-lang="en">In 2021, the Dikè doctoral training program, carried out by the CTHDIP, declined in two stages the theme of the interbreeding of rights in French-speaking sub-Saharan Africa.
                     <br> For this occasion I was able to be the photographer who created the cover page of this book.
                     <br> "THE MIXING OF RIGHTS IN FRANCOPHONE SUB-SAHARAN AFRICA."</p>
+                <p class="text-faded" data-lang="fr" style="display: none;">En 2021, le programme de formation doctorale Dikè, porté par le CTHDIP, a décliné en deux temps la thématique du métissage des droits en Afrique subsaharienne francophone. Pour cette occasion j'ai pu être le photographe qui a créé la couverture
+                    de ce livre. "LE MÉLANGE DES DROITS EN AFRIQUE SUBSAHARIENNE FRANCOPHONE."</p>
                 <div class="call-to-action">
-                    <a href="https://cthdip.ut-capitole.fr/accueil/recherche/publications-du-centre/collections-douvrages/publications-dike/le-metissage-des-droits-en-afrique-subsaharienne-francophone-publications-dike-n-3-cthdip" target="_blank" class="btn btn-default btn-xl wow tada">Take a look </a>
+                    <a href="https://cthdip.ut-capitole.fr/accueil/recherche/publications-du-centre/collections-douvrages/publications-dike/le-metissage-des-droits-en-afrique-subsaharienne-francophone-publications-dike-n-3-cthdip" target="_blank" class="btn btn-default btn-xl wow tada"> Details</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const langButtons = document.querySelectorAll('.lang-button');
+        const paragraphs = document.querySelectorAll('p[data-lang]');
+        const titre = document.querySelectorAll('h2[data-lang]');
+
+        langButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const selectedLang = this.getAttribute('data-lang');
+
+                paragraphs.forEach(paragraph => {
+                    if (paragraph.getAttribute('data-lang') === selectedLang) {
+                        paragraph.style.display = 'block';
+                    } else {
+                        paragraph.style.display = 'none';
+                    }
+                });
+                titre.forEach(titre => {
+                    if (titre.getAttribute('data-lang') === selectedLang) {
+                        titre.style.display = 'block';
+                    } else {
+                        titre.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+</script>

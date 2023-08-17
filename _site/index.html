@@ -42,6 +42,9 @@
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
+            <button class="lang-button" data-lang="en" style="background-color: rgba(102, 99, 99, 0.5); font-size: 22px;">🇬🇧</button>
+            <button class="lang-button" data-lang="fr" style="background-color: rgba(102, 99, 99, 0.5); font-size: 22px;">🇫🇷</button>
+
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
@@ -50,6 +53,7 @@
             </button>
             <a class="navbar-brand page-scroll" href="#page-top">Pauline Cabee</a>
         </div>
+
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -77,35 +81,94 @@
 </nav> <header>
     <div class="header-content">
         <div class="header-content-inner">
-            <h1> My Portfolio </h1>
+            <h1 data-lang="en"> Portfolio </h1>
             <hr>
-            <p>Third Year in IT school, Cybersecurity.
-                <br> <br> I chose the international language for my website in a way to have more possibilities with compagnies. I'm a french person, fluent in english.
-                <br> <br>If you click on my git links to see my differents projects or internships, you will have the french versions, because my school is in France.
-                <br> Don't worry, you can contact me to have the englishs versions !
+            <p data-lang="en">Third Year in IT school, Cybersecurity.
+                <br> <br> I chose the international language for my website in a way to have more possibilities with companies. I'm a French person, fluent in English.
+                <br> <br>But if you click on the buttons in the navigation you can switch language between French and English, don't worry you have the choice!
+                <br> <br>You can now explore my portfolio, you can find my skills and my projects. If you click on my various links, you will be directed directly to my GIT in order to have all the detailed information.
             </p>
-            <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
+            <p data-lang="fr" style="display: none;"> Vous avez choisi la version française de mon site ! Bienvenue à vous ! Je suis donc en troisième année dans une école d'informatique, spécialité cybersécurité.
+                <br> <br> Je vous laisse le plaisir d'explorer mon portfolio, vous pourrez y trouver mes compétences ainsi que mes projets.
+                <br> <br> Si vous cliquez sur mes différents liens vous serez directement dirigé vers mon GIT afin d'avoir toutes les informations détaillées.
+            </p>
+            <a href="#about" class="btn btn-primary btn-xl page-scroll">Plus</a>
         </div>
     </div>
-</header> <section class="bg-primary" id="about">
+</header>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const langButtons = document.querySelectorAll('.lang-button');
+        const paragraphs = document.querySelectorAll('p[data-lang]');
+
+        langButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const selectedLang = this.getAttribute('data-lang');
+
+                paragraphs.forEach(paragraph => {
+                    if (paragraph.getAttribute('data-lang') === selectedLang) {
+                        paragraph.style.display = 'block';
+                    } else {
+                        paragraph.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+</script> <section class="bg-primary" id="about">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
-                <h2 class="section-heading">About me...</h2>
+                <h2 data-lang="en" class="section-heading">About me...</h2>
+                <h2 data-lang="fr" style="display: none;" class="section-heading">A propos de moi...</h2>
                 <hr class="light">
                 <p style="float: left; width: 200px;height: auto;margin-right: 20px;"> <img src="img/profil1.jpg" class="profil1" alt="imageprofil"></p>
                 <br><br>
-                <p class="text-faded">Just about to begin my third year in computer science. I am motivated by any kind of project. I obviously like IT but also design, photography and management. I like to create projects and I have a very good sense of priorities. I thrive
+                <p class="text-faded" data-lang="en">Just about to begin my third year in computer science. I am motivated by any kind of project. I obviously like IT but also design, photography and management. I like to create projects and I have a very good sense of priorities. I thrive
                     in teamwork. My speciality is the CyberSecurity.</p>
-                <a href="#services" class="btn btn-default btn-xl">Get Started!</a>
+                <p class="text-faded" data-lang="fr" style="display: none;">Je suis sur le point de commencer ma troisième année en informatique. Je suis motivé par tout type de projet. J'aime évidemment l'informatique mais aussi le design, la photographie et le management. J'aime créer des projets et j'ai un
+                    très bon sens des priorités. je m'épanouie dans le travail d'équipe. Ma spécialité est la CyberSécurité.</p>
+                <br>
+                <a href="#services" class="btn btn-default btn-xl">👇🏼 👇🏼</a>
             </div>
         </div>
     </div>
-</section> <section id="services">
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const langButtons = document.querySelectorAll('.lang-button');
+        const paragraphs = document.querySelectorAll('p[data-lang]');
+        const titre = document.querySelectorAll('h2[data-lang]');
+
+        langButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const selectedLang = this.getAttribute('data-lang');
+
+                paragraphs.forEach(paragraph => {
+                    if (paragraph.getAttribute('data-lang') === selectedLang) {
+                        paragraph.style.display = 'block';
+                    } else {
+                        paragraph.style.display = 'none';
+                    }
+                });
+                titre.forEach(titre => {
+                    if (titre.getAttribute('data-lang') === selectedLang) {
+                        titre.style.display = 'block';
+                    } else {
+                        titre.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+</script> <section id="services">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading">Let me introduce myself in few words</h2>
+                <h2 class="section-heading" data-lang="en">Let me introduce myself in few words</h2>
+                <h2 class="section-heading" data-lang="fr" style="display: none;">Petite présentation</h2>
                 <hr class="primary">
             </div>
         </div>
@@ -115,30 +178,38 @@
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="service-box">
                     <i class="fa fa-4x fa-laptop wow bounceIn text-primary"></i>
-                    <h3>IT Skills</h3>
-                    <p class="text-muted">Student in Toulouse Ynov Campus, in IT Cybersecurity. Problem solving is my way of thinking.</p>
+                    <h3 data-lang="en">IT Skills</h3>
+                    <h3 data-lang="fr" style="display: none;">Compétences Info</h3>
+                    <p class="text-muted" data-lang="en">Student in Toulouse Ynov Campus, in IT Cybersecurity. Problem solving is my way of thinking.</p>
+                    <p class="text-muted" data-lang="fr" style="display: none;">Étudiant au Campus Toulouse Ynov, en Cybersécurité informatique. La résolution de problèmes est ma façon de penser.</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="service-box">
                     <i class="fa fa-4x fa-users wow bounceIn text-primary" data-wow-delay=".1s"></i>
                     <h3>Management</h3>
-                    <p class="text-muted">Experience as a project manager in my school. I know how to handle teamwork and the agile method.</p>
+                    <p class="text-muted" data-lang="en">Experience as a project manager in my school. I know how to handle teamwork and the agile method.</p>
+                    <p class="text-muted" data-lang="fr" style="display: none;">Expérience en tant que chef de projet dans mon école. Je sais gérer le travail en équipe et la méthode agile.</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="service-box">
                     <i class="fa fa-4x fa-tasks wow bounceIn text-primary" data-wow-delay=".2s"></i>
-                    <h3>Multitasking</h3>
-                    <p class="text-muted">I am able to control several spots at the same time thanks to the Ydays in my school as a Project Manager.</p>
+                    <h3 data-lang="en">Multitasking</h3>
+                    <h3 data-lang="fr" style="display: none;">Multitâche</h3>
+                    <p class="text-muted" data-lang="en">I am able to control several spots at the same time thanks to the Ydays in my school as a Project Manager.</p>
+                    <p class="text-muted" data-lang="fr" style="display: none;">Je suis capable de maîtriser plusieurs tâches simultanément grâce à mon experience de chef de projet aux YDays.</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="service-box">
                     <i class="fa fa-4x fa-code wow bounceIn text-primary" data-wow-delay=".3s"></i>
-                    <h3>Projects</h3>
-                    <p class="text-muted">
-                        • IT: web dev, devops, and infra. <br> • Video: Short film realisation. <br> • Design: School BDE posters. <br> • Photography: Many shootings</p>
+                    <h3 data-lang="en">Projects</h3>
+                    <h3 data-lang="fr" style="display: none;">Projets</h3>
+                    <p class="text-muted" data-lang="en">
+                        • IT: Web dev, Cyber, and Infra. <br> • Video: Short film realisation. <br> • Design: School BDE posters. <br> • Photography: Many shootings</p>
+                    <p class="text-muted" data-lang="fr" style="display: none;">
+                        • Informatique: developpement, Infra, Cyber. <br> • Video: Court métrage. <br> • Design: Affiches du BDE. <br> • Photographie: Amateur, shootings.</p>
                 </div>
             </div>
 
@@ -146,73 +217,132 @@
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="service-box">
                     <i class="fa fa-4x fa-video-camera wow bounceIn text-primary" data-wow-delay=".3s"></i>
-                    <h3>Hobbies</h3>
-                    <p class="text-muted">
-                        • Sports: Basketball - Motocross - Bike <br> • Art: Theater - Conservatory and "Cours Florent" <br>
+                    <h3 data-lang="en">Hobbies</h3>
+                    <h3 data-lang="fr" style="display: none;">Loisirs</h3>
+                    <p class="text-muted" data-lang="en">
+                        • Sports: Basketball - Enduro - Moto <br> • Art: Theater - Conservatory and "Cours Florent" <br>
+                    </p>
+                    <p class="text-muted" data-lang="fr" style="display: none;">
+                        • Sports: Basketball - Enduro - Moto route <br> • Art: Théâtre - Conservatoire et "Cours Florent" <br>
                     </p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="service-box">
                     <i class="fa fa-4x fa-linkedin-square wow bounceIn text-primary" data-wow-delay=".3s"></i>
-                    <h3>Jobs</h3>
-                    <p class="text-muted">2019: Barmaid in a restaurant in the city of Carcassonne.<br> 2022 - 2023: Internships, Brussels, and devops (checks details below). <br> 2023: Apprenticeship in BPCE-IT, in Cybersecurity.</p>
+                    <h3 data-lang="en">Jobs</h3>
+                    <h3 data-lang="fr" style="display: none;">Experience pro</h3>
+                    <p class="text-muted" data-lang="en">2019: Barmaid in a restaurant in the city of Carcassonne.<br> 2022 - 2023: Internships, Brussels, and devops(checks details below). <br> 2023: Apprenticeship in BPCE-IT, in Cybersecurity.</p>
+                    <p class="text-muted" data-lang="fr" style="display: none;">2019: Barmaid: Cité de Carcassonne.<br> 2022 - 2023: Stages, Bruxelles, et Developpement(voir détails ci-dessous). <br> 2023: Alternance chez BPCE-IT, en Cybersecurité.</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="service-box">
                     <i class="fa fa-4x fa-graduation-cap wow bounceIn text-primary" data-wow-delay=".3s"></i>
                     <h3>Diplomes</h3>
-                    <p class="text-muted">
-                        • Patent: First Class Honors. <br> • Baccalauréat: Scientist Honors. <br> • TOEIC: Level B2. <br> • Bachelor 1: Honors. <br> • Bachelor 2: Highest honour.</p>
+                    <p class="text-muted" data-lang="en">
+                        • Patent: Highests Honors. <br> • Baccalauréat: Scientist Honors. <br> • TOEIC: Level B2. <br> • Bachelor 1: Honors. <br> • Bachelor 2: Highests Honors.</p>
+                    </p>
+                    <p class="text-muted" data-lang="fr" style="display: none;">
+                        • Brevet: Mention très bien. <br> • Bac Scientifique: Mention Bien. <br> • TOEIC: Niveau B2. <br> • Bachelor 1: Mention Bien. <br> • Bachelor 2: Mention très bien.</p>
                     </p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="service-box">
                     <i class="fa fa-4x fa-heart wow bounceIn text-primary" data-wow-delay=".3s"></i>
-                    <h3>Passionated</h3>
-                    <p class="text-muted">I discovered IT few years ago now. I am passionated in my work, I love learning new things. This subject is in a constant evolution and it's why I love it.</p>
+                    <h3>Passion</h3>
+                    <p class="text-muted" data-lang="en">I discovered IT few years ago now. I am passionated in my work, I love learning new things. This subject is in a constant evolution and it's why I love it.</p>
+                    <p class="text-muted" data-lang="fr" style="display: none;">J'ai découvert l'informatique il y a quelques années, et j'ai toujours été pasionnée. L'informatique est un domaine en constante évolution, c'est pour cette raison que j'ai choisis d'en faire mon métier.</p>
+
                 </div>
             </div>
         </div>
     </div>
-</section> <section class="bg-primary" id="internship">
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const langButtons = document.querySelectorAll('.lang-button');
+        const paragraphs = document.querySelectorAll('p[data-lang]');
+        const titre = document.querySelectorAll('h3[data-lang]');
+        const titre2 = document.querySelectorAll('h2[data-lang]');
+
+        langButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const selectedLang = this.getAttribute('data-lang');
+
+                paragraphs.forEach(paragraph => {
+                    if (paragraph.getAttribute('data-lang') === selectedLang) {
+                        paragraph.style.display = 'block';
+                    } else {
+                        paragraph.style.display = 'none';
+                    }
+                });
+                titre.forEach(titre => {
+                    if (titre.getAttribute('data-lang') === selectedLang) {
+                        titre.style.display = 'block';
+                    } else {
+                        titre.style.display = 'none';
+                    }
+                });
+                titre2.forEach(titre2 => {
+                    if (titre2.getAttribute('data-lang') === selectedLang) {
+                        titre2.style.display = 'block';
+                    } else {
+                        titre2.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+</script> <section class="bg-primary" id="internship">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
-                <h2 class="section-heading">My internships</h2>
+                <h2 class="section-heading" data-lang="en">My internships</h2>
+                <h2 class="section-heading" data-lang="fr" style="display: none;">Mes stages</h2>
                 <hr class="light">
-                <p class="text-faded">In July 2022 I made an internship in Louvain La Neuve Laboratory of research (Belgium). I had the chance to be on a plugin project in a way of research in neuro science. (All the project below, you can click on it)</p>
-                <p class="text-faded">And in 2023 My second year's Internship was for an association of music. I had to create a whole website and a planning of reservations for shows online. (The website below, you can click on it too)</p>
+                <p class="text-faded" data-lang="en">In July 2022 I made an internship in Louvain La Neuve Laboratory of research (Belgium). I had the chance to be on a plugin project in a way of research in neuro science. (All the project below, you can click on it)</p>
+                <p class="text-faded" data-lang="en">And in 2023 My second year's Internship was for an association of music. I had to create a whole website and a planning of reservations for shows online. (The website below, you can click on it too)</p>
+
+                <p class="text-faded" data-lang="fr" style="display: none;">En juillet 2022 j'ai effectué un stage au Laboratoire de recherche de Louvain La Neuve (Belgique). J'ai eu la chance d'être sur un projet de plugin dans une voie de recherche en neurosciences. (Tout le projet ci-dessous, vous pouvez cliquer
+                    dessus)
+                </p>
+                <p class="text-faded" data-lang="fr" style="display: none;">Et en 2023 Mon stage de deuxième année était pour une association de musique. Je devais créer tout un site internet et un planning de réservations de spectacles en ligne. (Le site Web ci-dessous, vous pouvez également cliquer dessus)</p>
                 <br>
 
 
-                <button onclick="showPopup()">View Experience</button>
+                <button onclick="showPopup()">Experience...</button>
                 <div id="popup" class="popup">
                     <div class="popup-content">
                         <!--<span class="close" onclick="hidePopup()">&times;</span> -->
-                        <h3 style="color: darkslategrey;">Professional Experience</h3>
+                        <h2 data-lang="en" style="color: darkslategrey;">Professional Experience</h2>
+                        <h2 data-lang="fr" style="display: none; color: darkslategrey;">Experience Professionnelle</h2>
                         <p style="color: darkslategrey;">
                             <div class="timeline-container">
                                 <ul class="timeline">
                                     <li>
-                                        <div class="date">July 2022</div>
+                                        <div class="date">07.2022</div>
                                         <div class="content" style="color: #243277">
-                                            <h3>Crossmodal Perception and Plasticity laboratory</h3>
-                                            <p>Internship on the research and a creation of a new plugin in python</p>
-                                            <button onclick="window.open('https://github.com/WeeXee/Internship_2022.git', '_blank')">Here details</button>
+                                            <h2 data-lang="en">Crossmodal Perception and Plasticity laboratory</h2>
+                                            <h2 data-lang="fr" style="display: none;">Laboratoire de recherche Neuroscientifique</h2>
+                                            <p data-lang="en">Internship on the research and a creation of a new plugin in python</p>
+                                            <p data-lang="fr" style="display: none;">Stage dans un laboratoire de recherche, et création d'un plugin python</p>
+                                            <button onclick="window.open('https://github.com/WeeXee/Internship_2022.git', '_blank')">Details...</button>
                                         </div>
                                     </li>
                                     <li>
-                                        <div class="date"> Feb-Avr 2023</div>
+                                        <div class="date"> 02-04 2023</div>
                                         <div class="content" style="color: #243277">
-                                            <h3>Internship ASJA</h3>
-                                            <p>Creation of a website for a music assocation</p>
-                                            <button onclick="window.open('https://github.com/WeeXee/Internship_2023.git', '_blank')">Here details</button>
+                                            <h2 data-lang="en">Internship ASJA</h2>
+                                            <h2 data-lang="fr" style="display: none;">Stage ASJA</h2>
+                                            <p data-lang="en">Creation of a website for a music assocation</p>
+                                            <p data-lang="fr" style="display: none;">Creation d'un site internet pour une association de musique</p>
+                                            <button onclick="window.open('https://github.com/WeeXee/Internship_2023.git', '_blank')">Details...</button>
                                         </div>
                                 </ul>
-                                <button onclick="hidePopup()" , style="background-color: rgb(117, 58, 58)">Close</button>
+                                <button onclick="hidePopup()" , style="background-color: rgb(117, 58, 58)">X</button>
                             </div>
                         </p>
                     </div>
@@ -370,13 +500,43 @@
             padding: 50px;
         }
     }
-</style> <section id="portfolio">
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const langButtons = document.querySelectorAll('.lang-button');
+        const paragraphs = document.querySelectorAll('p[data-lang]');
+        const titre = document.querySelectorAll('h2[data-lang]');
+
+        langButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const selectedLang = this.getAttribute('data-lang');
+
+                paragraphs.forEach(paragraph => {
+                    if (paragraph.getAttribute('data-lang') === selectedLang) {
+                        paragraph.style.display = 'block';
+                    } else {
+                        paragraph.style.display = 'none';
+                    }
+                });
+                titre.forEach(titre => {
+                    if (titre.getAttribute('data-lang') === selectedLang) {
+                        titre.style.display = 'block';
+                    } else {
+                        titre.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+</script> <section id="portfolio">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading">My Projects<br></h2>
-
-                <h2 class="section-heading">You can click on these:<br></h2>
+                <h2 data-lang="en" class="section-heading">My Projects<br></h2>
+                <h2 data-lang="fr" style="display: none;" class="section-heading">Mes Projets<br></h2>
+                <h2 data-lang="en" class="section-heading">You can click on these:<br></h2>
+                <h2 data-lang="fr" style="display: none;" class="section-heading">Cliquez pour en voir plus:<br></h2>
                 <hr class="primary">
             </div>
             <div class="col-lg-4 col-sm-6">
@@ -516,37 +676,114 @@
             </div>
         </div>
     </div>
-</section> <section class="bg-primary" id="article">
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const langButtons = document.querySelectorAll('.lang-button');
+        const paragraphs = document.querySelectorAll('h2[data-lang]');
+
+        langButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const selectedLang = this.getAttribute('data-lang');
+
+                paragraphs.forEach(paragraph => {
+                    if (paragraph.getAttribute('data-lang') === selectedLang) {
+                        paragraph.style.display = 'block';
+                    } else {
+                        paragraph.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+</script> <section class="bg-primary" id="article">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
-                <h2 class="section-heading">Science review</h2>
+                <h2 class="section-heading" data-lang="en">Science review</h2>
+                <h2 class="section-heading" data-lang="fr" style="display: none;">Revue scientifique</h2>
                 <hr class="light">
                 <p style="float: left; width: 200px;height: auto;margin-right: 100px;"> <img src="img/portfolio/article.png" class="profil1" download="https://github.com/WeeXee/Portfolio/raw/main/img/portfolio/article.pdf" alt="imageprofil"></p>
                 <br><br>
-                <p class="text-faded">In 2021, the Dikè doctoral training program, carried out by the CTHDIP, declined in two stages the theme of the interbreeding of rights in French-speaking sub-Saharan Africa.
+                <p class="text-faded" data-lang="en">In 2021, the Dikè doctoral training program, carried out by the CTHDIP, declined in two stages the theme of the interbreeding of rights in French-speaking sub-Saharan Africa.
                     <br> For this occasion I was able to be the photographer who created the cover page of this book.
                     <br> "THE MIXING OF RIGHTS IN FRANCOPHONE SUB-SAHARAN AFRICA."</p>
+                <p class="text-faded" data-lang="fr" style="display: none;">En 2021, le programme de formation doctorale Dikè, porté par le CTHDIP, a décliné en deux temps la thématique du métissage des droits en Afrique subsaharienne francophone. Pour cette occasion j'ai pu être le photographe qui a créé la couverture
+                    de ce livre. "LE MÉLANGE DES DROITS EN AFRIQUE SUBSAHARIENNE FRANCOPHONE."</p>
                 <div class="call-to-action">
-                    <a href="https://cthdip.ut-capitole.fr/accueil/recherche/publications-du-centre/collections-douvrages/publications-dike/le-metissage-des-droits-en-afrique-subsaharienne-francophone-publications-dike-n-3-cthdip" target="_blank" class="btn btn-default btn-xl wow tada">Take a look </a>
+                    <a href="https://cthdip.ut-capitole.fr/accueil/recherche/publications-du-centre/collections-douvrages/publications-dike/le-metissage-des-droits-en-afrique-subsaharienne-francophone-publications-dike-n-3-cthdip" target="_blank" class="btn btn-default btn-xl wow tada"> Details</a>
                 </div>
             </div>
         </div>
     </div>
-</section> <aside class="bg-dark">
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const langButtons = document.querySelectorAll('.lang-button');
+        const paragraphs = document.querySelectorAll('p[data-lang]');
+        const titre = document.querySelectorAll('h2[data-lang]');
+
+        langButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const selectedLang = this.getAttribute('data-lang');
+
+                paragraphs.forEach(paragraph => {
+                    if (paragraph.getAttribute('data-lang') === selectedLang) {
+                        paragraph.style.display = 'block';
+                    } else {
+                        paragraph.style.display = 'none';
+                    }
+                });
+                titre.forEach(titre => {
+                    if (titre.getAttribute('data-lang') === selectedLang) {
+                        titre.style.display = 'block';
+                    } else {
+                        titre.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+</script> <aside class="bg-dark">
     <div class="container text-center">
         <div class="call-to-action">
-            <h2>Download my CV:</h2>
-            <a href="https://github.com/WeeXee/Portfolio/blob/main/img/CV%20PAULINE.pdf" target="_blank" class="btn btn-default btn-xl wow tada">Click here to download!</a>
+            <h2 data-lang="en">Download my CV:</h2>
+            <h2 data-lang="fr" style="display: none;">Téléchargez mon CV:</h2>
+            <a href="https://github.com/WeeXee/Portfolio/blob/main/img/CV%20PAULINE.pdf" target="_blank" class="btn btn-default btn-xl wow tada">👉🏼👀</a>
         </div>
     </div>
-</aside> <section id="contact">
+</aside>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const langButtons = document.querySelectorAll('.lang-button');
+        const paragraphs = document.querySelectorAll('h2[data-lang]');
+
+        langButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const selectedLang = this.getAttribute('data-lang');
+
+                paragraphs.forEach(paragraph => {
+                    if (paragraph.getAttribute('data-lang') === selectedLang) {
+                        paragraph.style.display = 'block';
+                    } else {
+                        paragraph.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+</script> <section id="contact">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
-                <h2 class="section-heading">Contact me !</h2>
+                <h2 class="section-heading" data-lang="en">Contact me !</h2>
+                <h2 class="section-heading" data-lang="fr" style="display: none;">Contactez moi !</h2>
                 <hr class="primary">
-                <p>Ready to start your next project with me?</p>
+                <p data-lang="en">Ready to start your next project with me ?</p>
+                <p data-lang="fr" style="display: none;">Prêt à commencer votre prochain projet avec moi ?</p>
             </div>
             <div class="col-lg-2 col-lg-offset-2 text-center">
                 <a href="https://www.instagram.com/kbphotographiie/" target="_blank">
@@ -568,7 +805,37 @@
             </div>
 
         </div>
-</section> <!-- jQuery -->
+</section>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const langButtons = document.querySelectorAll('.lang-button');
+        const paragraphs = document.querySelectorAll('p[data-lang]');
+        const titres = document.querySelectorAll('h2[data-lang]');
+
+        langButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const selectedLang = this.getAttribute('data-lang');
+
+                paragraphs.forEach(paragraph => {
+                    if (paragraph.getAttribute('data-lang') === selectedLang) {
+                        paragraph.style.display = 'block';
+                    } else {
+                        paragraph.style.display = 'none';
+                    }
+                });
+                titres.forEach(titres => {
+                    if (titres.getAttribute('data-lang') === selectedLang) {
+                        titres.style.display = 'block';
+                    } else {
+                        titres.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+</script> <!-- jQuery -->
 <script src="js/jquery.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
