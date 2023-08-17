@@ -12,7 +12,7 @@
                 <button onclick="showPopup()">View Experience</button>
                 <div id="popup" class="popup">
                     <div class="popup-content">
-                        <span class="close" onclick="hidePopup()">&times;</span>
+                        <!--<span class="close" onclick="hidePopup()">&times;</span> -->
                         <h3 style="color: darkslategrey;">Professional Experience</h3>
                         <p style="color: darkslategrey;">
                             <div class="timeline-container">
@@ -32,15 +32,10 @@
                                             <p>Creation of a website for a music assocation</p>
                                             <button onclick="window.open('https://github.com/WeeXee/Internship_2023.git', '_blank')">Here details</button>
                                         </div>
-                                    </li>
-                                    <!-- Add more job experiences as needed -->
                                 </ul>
+                                <button onclick="hidePopup()" , style="background-color: rgb(117, 58, 58)">Close</button>
                             </div>
                         </p>
-
-
-
-
                     </div>
                 </div>
             </div>
@@ -86,12 +81,39 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     }
     
+    .popup-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        max-width: 80%;
+        width: 90%;
+        /* Ajustez la largeur du popup */
+    }
+    
     .close {
         position: absolute;
-        top: 10px;
-        right: 10px;
-        font-size: 18px;
+        top: 5px;
+        /* Ajustez la position verticale */
+        right: 5px;
+        /* Ajustez la position horizontale */
+        font-size: 20px;
+        /* Augmentez la taille de la police */
         cursor: pointer;
+        padding: 5px;
+        /* Ajoutez de la marge autour du bouton */
+        background-color: #f5f5f5;
+        /* Ajoutez une couleur de fond */
+        border-radius: 50%;
+        font-size: 20px;
+        cursor: pointer;
+        padding: 5px;
+        background-color: #f5f5f5;
+        border-radius: 50%;
     }
     
     h2 {
@@ -155,5 +177,18 @@
     
     .timeline li:last-child {
         margin-bottom: 0;
+    }
+    
+    @media screen and (max-width: 200px) {
+        .popup-content {
+            max-width: 95%;
+            width: 95%;
+        }
+        .close {
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            padding: 50px;
+        }
     }
 </style>
